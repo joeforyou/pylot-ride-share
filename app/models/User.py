@@ -31,14 +31,15 @@ class User(Model):
             return False
         else:
             query = 'INSERT INTO user (first_name, last_name, username, email, phone_number, password, card) VALUES (:firstName, :lastName, :username, :email, :phoneNumber, :password, :creditCard)'
+            hashed_pw =self.bcrypt.generate_password_hash(userData['password'])
             data = {
                 'firstName': userData['firstName'],
                 'lastName': userData['lastName'],
                 'username': userData['username'],
                 'email': userData['email'],
                 'phoneNumber': userData['phoneNumber'],
-                'creditCard': userData['stripeToken']
-                'password': md5.new(userData['password']).hexdigest()
+                'creditCard': userData['stripeToken'],
+                'password': hashed_pw
                 }
             return self.db.query_db(query, data)
 
