@@ -30,7 +30,7 @@ class User(Model):
         elif hasErrors == True:
             return False
         else:
-            query = 'INSERT INTO user (first_name, last_name, username, email, phone_number, password) VALUES (:firstName, :lastName, :username, :email, :phoneNumber, :password)'
+            query = 'INSERT INTO user (first_name, last_name, username, email, phone_number, password, card) VALUES (:firstName, :lastName, :username, :email, :phoneNumber, :password, :creditCard)'
             data = {
                 'firstName': userData['firstName'],
                 'lastName': userData['lastName'],
@@ -38,6 +38,7 @@ class User(Model):
                 'email': userData['email'],
                 'phoneNumber': userData['phoneNumber'],
                 'password': userData['password'],
+                'creditCard': userData['stripeToken']
                 }
             return self.db.query_db(query, data)
 
