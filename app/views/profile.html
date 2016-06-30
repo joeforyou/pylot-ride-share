@@ -13,13 +13,13 @@
 	<body>
 		<div class="container">
 			<div id="header">
-        		<h1>RIDE <span>SHARE</span></h1>
+        		<a href='/'><h1>RIDE <span>SHARE</span></h1></a>
         		<a href='/logout'><button id="logout">Log Out</button></a>
       		</div>
       		<div id="page">
 				<div id="profile">
 					<img id="profilePic" src="static/img/smallcancel.png">
-					<p id="name">{{ session['currentUser']['first_name'] }} {{ session['currentUser']['last_name'] }}</p>
+					<p id="name">Hello, {{ session['currentUser']['first_name'] }} {{ session['currentUser']['last_name'] }}</p>
 					<p id="about">About</p>
 					<p id="sentence">{{ session['currentUser']['about'] }}</p>
 					<form action='/update' method="POST">
