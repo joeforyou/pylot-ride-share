@@ -1,0 +1,91 @@
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	background-color: #FFFFFF;
+	font-family: Verdana;
+}
+#header{
+	background-color: #F1F2F2;
+}
+h1{
+	color: #59D0DB;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+h1> span{
+	color: #FF9933;
+}
+#cover{
+	background: #59D0DB;
+	height: 370px;
+}
+
+h2{
+	position: absolute;
+	margin: 50px 0px 0px 400px;
+	color: white;
+		
+}
+
+h2> span{
+	color: #FF9933;
+}
+#car1 {
+	height:300px;
+	width:22%;
+	margin: 70px 0px 10px 470px;
+}
+h3{
+	display: inline-block;
+	margin: 20px 0px 0px 190px;
+}
+
+p{
+	display: inline-block;
+	margin: 30px 690px 0px 110px;
+}
+
+#loginForm{
+	margin: -127px 0px 0px 750px;
+	display: inline-block;
+	position: absolute;
+
+}
+
+#username{
+	width: 200px;
+	height: 15px;
+}
+#password{
+	margin-left: 6px;
+	height: 15px;
+	width: 200px;
+}
+#login{
+	background-color: #FF9933;
+	margin: 10px 0px 0px 143px;
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: white;
+}
+
+#register{
+	background-color: #59D0DB;
+	margin: 5px 0px 0px 893px;
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: white;
+}
+li{
+	color: red;
+	margin: -55px 0px 0px 0px;
+	list-style: none;
+}

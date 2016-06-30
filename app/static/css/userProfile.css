@@ -1,0 +1,52 @@
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	background-color: #FFFFFF;
+	font-family: Verdana;
+}
+#header{
+	background-color: #F1F2F2;
+}
+h1{
+	color: #59D0DB;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+h1> span{
+	color: #FF9933;
+}
+#logout{
+	margin: 25px 0px 0px 780px;
+	height: 30px;
+	position: absolute;
+	width: 100px;
+	font-size: medium;
+	background-color: #59D0DB;
+	color: white;
+}
+#profilePic{
+	margin: 30px 0px 0px 50px;
+	height: 250px;	
+}
+#name{
+	position: absolute;
+	margin: -200px 0px 0px 350px;
+	font-size: xx-large;
+	color: #59D0DB;
+}
+
+#about{
+	margin: -150px 0px 0px 353px;
+	position: absolute;
+}
+
+#sentence{
+	position: absolute;
+	margin: -120px 200px 0px 352px;
+}
