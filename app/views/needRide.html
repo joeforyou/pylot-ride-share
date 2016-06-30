@@ -7,10 +7,16 @@
 	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBg-UDbAAvfA7W6bysXmpCecbCQ0VUvXSM&amp;libraries=places" type="text/javascript"></script>
     	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#carpool").animate({right: "+=550"}, 2000);
-		});
+   	function initialize() {
+      var input = document.getElementById('searchTextField');
+      var options = {
+         types: ['geocode']
+      };
+      var autocomplete = new google.maps.places.Autocomplete(input,options);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
 	</head>
 	<body>
@@ -21,8 +27,8 @@
 		  	</div>
 		  	<div id="search">
 		  		<form action='/search' method='post' id="toFrom">
-					From<br><br><input name='origin' id="from" type="text" placeholder="Where from?"/><br><br> 
-					Destination<br><br><input name='destination' id="destination" type="text" placeholder="Where to?"/><br><br>   	
+					From<br><br><input name='origin' id="searchTextField" type="text" placeholder="Where from?"/><br><br> 
+					Destination<br><br><input name='destination' id="searchTextField" type="text" placeholder="Where to?"/><br><br>   	
 					<input id="searchButton" type="submit" value="submit">	
 		  		</form>
 		  	</div>

@@ -7,6 +7,17 @@
 		    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBg-UDbAAvfA7W6bysXmpCecbCQ0VUvXSM&amp;libraries=places" type="text/javascript"></script>
+    		<script type="text/javascript">
+   	function initialize() {
+      var input = document.getElementById('searchTextField');
+      var options = {
+         types: ['geocode']
+      };
+      var autocomplete = new google.maps.places.Autocomplete(input,options);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+			</script>
     		<script type="text/javascript">
 			$(document).ready(function() {
    				$("#datepicker").datepicker();
@@ -23,8 +34,8 @@
 			<h2 id="postRide">Post a Ride Offer</h2>
 			<div id="tripInfo">
 				<form id="locations" action="/postoffer" method="Post">
-					<input name='origin' class="route" id="whereFrom" type="text" placeholder="Where From?"><br><br>
-					<input name='destination' class="route" id="whereTo" type="text" placeholder="Where To?">
+					<input name='origin' class="route" id="searchTextField" type="text" placeholder="Where From?"><br><br>
+					<input name='destination' class="route" id="searchTextField" type="text" placeholder="Where To?">
 				
 				<p class="depart"> Depart</p>
 					<p class="datepicker"><input name='date' type="text" id="datepicker" placeholder="Date"></p>
