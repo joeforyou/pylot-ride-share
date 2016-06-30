@@ -16,9 +16,10 @@ class Sessions(Controller):
     def register(self):
         self.load_model('User')
         userArray = self.models['User'].register_new_user(request.form)
-        if userArray:
-            session['currentUser'] = userArray[0]
-            return redirect('/main')
+          if userArray:
+            flash('Successful registration! Please log in to continue.')
+            return self.load_view('index.html')
+
         else:
             flash('Failed to register. Name must be at least three characters. Password must be eight characters or more with at least one number and one letter.')
             return redirect ('/signup')

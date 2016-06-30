@@ -1,7 +1,7 @@
 
 from system.core.model import Model
 
-import re
+import re, md5
 
 NAME_REGEX = re.compile(r'^[a-zA-Z0-9]{3,}')
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
@@ -37,8 +37,8 @@ class User(Model):
                 'username': userData['username'],
                 'email': userData['email'],
                 'phoneNumber': userData['phoneNumber'],
-                'password': userData['password'],
                 'creditCard': userData['stripeToken']
+                'password': md5.new(userData['password']).hexdigest()
                 }
             return self.db.query_db(query, data)
 
@@ -49,8 +49,9 @@ class User(Model):
         elif not NAME_REGEX.match(userData['username']):
             hasErrors = True
         elif hasErrors == False:
+            password = md5.new(userData['password']).hexdigest()
             query = "SELECT * FROM user WHERE username = :username AND password = :password"
-            data = {'username': userData['username'],'password': userData['password']}
+            data = {'username': userData['username'],'password': md5.new(userData['password']).hexdigest()}
             return self.db.query_db(query, data)
         else:
             return False
