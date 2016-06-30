@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<title>My Ride Share Profile</title>
+    	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+    	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   		 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    	<script type="text/javascript">
+    	</script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="header">
+        		<h1>RIDE <span>SHARE</span></h1>
+        		<a href='/logout'><button id="logout">Log Out</button></a>
+      		</div>
+      		<div id="page">
+				<div id="profile">
+					<img id="profilePic" src="static/img/smallcancel.png">
+					<p id="name">{{ session['currentUser']['first_name'] }} {{ session['currentUser']['last_name'] }}</p>
+					<p id="about">About</p>
+					<p id="sentence">{{ session['currentUser']['about'] }}</p>
+					<form action='/update' method="POST">
+						<input type="text" name='about'>
+						<input type='hidden' name='id' value="{{ session['currentUser']['id'] }}">
+						<input type='submit' value="Submit">
+					</form>
+				</div>
+				<div>
+					<a href='/offer'><button id="offerRide">Offer a Ride</button></a>
+				</div>
+				<div>
+					<a href='/need'><button id="needRide">Need a Ride</button></a>	
+				</div>
+				<div id="rideRequest">
+					<h3 id="activeRequest">Active Ride Requests:</h3>
+				<form action="" method="">
+					<ul>
+						<li>Los Angeles to San Francisco July 1 7pm<button>Delete</button><button>View</button></li>
+						<li>Los Angeles to San Diego July 3 7pm<button>Delete</button><button>View</button></li>
+						<li>Los Angeles to Santa Monica July5 7pm<button>Delete</button><button>View</button></li>
+						<li>Los Angeles to Fresno July 22 7pm<button>Delete</button><button>View</button></li>
+					</ul>
+				</form>
+
+					<!-- <p>Los Angeles to San Francisco June 22 7pm</p>
+					<p>Los Angeles to San Diego July 4 8am</p>
+					<p>San Diego to Corona August 22 9am</p>
+					<p>Long Beach to Santa Monica August 25 12pm</p> -->
+		<!-- {% for i in session['message'] %}
+				<p>{{ i }}</p>
+		{% endfor %} -->
+				</div>	
+				<h3 id="activeRequest">Active Ride Offers:</h3>
+				<div>
+				{% for offer in offerArray %}
+					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}</li>
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

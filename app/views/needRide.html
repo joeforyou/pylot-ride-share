@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>Need a Ride</title>
+	    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#carpool").animate({right: "+=550"}, 2000);
+		});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="header">
+		    	<h1>RIDE <span>SHARE</span></h1>
+		    	<button id="logout">Log Out</button>
+		  	</div>
+		  	<div id="search">
+		  		<form action='/search' method='post' id="toFrom">
+					From<br><br><input name='origin' id="from" type="text" placeholder="Where from?"/><br><br> 
+					Destination<br><br><input name='destination' id="destination" type="text" placeholder="Where to?"/><br><br>   	
+					<input id="searchButton" type="submit" value="submit">	
+		  		</form>
+		  	</div>
+		  	<div>
+		  	{% for result in resultArray %}
+		  		{{ result['origin'] }} to {{ result['destination'] }} on {{ result['date'] }} at {{ result['time'] }}
+		  	{% endfor %}
+		  	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+from system.core.controller import *
+
+class Rides(Controller):
+    def __init__(self, action):
+        super(Rides, self).__init__(action)
+
+        self.load_model('User')
+        self.db = self._app.db
+   
+    def index(self):
+        self.load_model('User')
+        offerArray = self.models['User'].get_offers_by_id(session['currentUser']['id'])
+        return self.load_view('profile.html', offerArray=offerArray)
+
+    def offer(self):
+        return self.load_view('offerRide.html')
+
+    def update(self):
+        self.load_model('User')
+        self.models['User'].update_about_text(request.form)
+        return redirect ('/main')
+
+    def postoffer(self):
+        self.load_model('User')
+        self.models['User'].post_new_offer(request.form)
+        return redirect ('/main')
+
+    def need(self):
+        return self.load_view('needRide.html')
+
+    def search(self):
+        self.load_model('User')
+        resultArray = self.models['User'].find_offers(request.form)
+        return self.load_view('needRide.html', resultArray=resultArray)

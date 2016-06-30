@@ -1,0 +1,84 @@
+
+from system.core.model import Model
+
+import re
+
+NAME_REGEX = re.compile(r'^[a-zA-Z0-9]{3,}')
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
+PASS_REGEX = re.compile(r'^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$')
+
+class User(Model):
+    def __init__(self):
+        super(User, self).__init__()
+
+    def register_new_user(self, userData):
+        hasErrors = False
+        if not NAME_REGEX.match(userData['firstName']):
+            hasErrors = True
+        elif not NAME_REGEX.match(userData['lastName']):
+            hasErrors = True
+        elif not NAME_REGEX.match(userData['username']):
+            hasErrors = True
+        elif not userData['phoneNumber']:
+            hasErrors = True
+        elif not EMAIL_REGEX.match(userData['email']):
+            hasErrors = True
+        elif not PASS_REGEX.match(userData['password']):
+            hasErrors = True
+        elif userData['password'] != userData['confirmPassword']:
+            hasErrors = True
+        elif hasErrors == True:
+            return False
+        else:
+            query = 'INSERT INTO user (first_name, last_name, username, email, phone_number, password) VALUES (:firstName, :lastName, :username, :email, :phoneNumber, :password)'
+            data = {
+                'firstName': userData['firstName'],
+                'lastName': userData['lastName'],
+                'username': userData['username'],
+                'email': userData['email'],
+                'phoneNumber': userData['phoneNumber'],
+                'password': userData['password'],
+                }
+            return self.db.query_db(query, data)
+
+    def login_user(self, userData):
+        hasErrors = False
+        if len(userData['username']) < 3:
+            hasErrors = True
+        elif not NAME_REGEX.match(userData['username']):
+            hasErrors = True
+        elif hasErrors == False:
+            query = "SELECT * FROM user WHERE username = :username AND password = :password"
+            data = {'username': userData['username'],'password': userData['password']}
+            return self.db.query_db(query, data)
+        else:
+            return False
+
+    def update_about_text(self, userData):
+        query = 'UPDATE user SET user.about=:about WHERE user.id=:id'
+        data = {'about': userData['about'], 'id': userData['id']}
+        return self.db.query_db(query, data)
+
+    def post_new_offer(self, userData):
+        query = 'INSERT INTO offer (origin, destination, date, time, seats, price, about, user_id) VALUES (:origin, :destination, :date, :time, :seats, :price, :about, :id)'
+        data = {
+                'origin': userData['origin'], 
+                'destination': userData['destination'], 
+                'date': userData['date'], 
+                'time': userData['time'], 
+                'seats': userData['seats'], 
+                'price': userData['price'], 
+                'about': userData['about'], 
+                'id': userData['id']
+                }
+        return self.db.query_db(query, data)
+
+    def get_offers_by_id(self, id):
+        query = 'SELECT * FROM offer WHERE user_id=:id'
+        data = {'id': id}
+        return self.db.query_db(query, data)
+
+    def find_offers(self, userData):
+        query = 'SELECT * FROM offer WHERE origin = :origin OR destination = :destination'
+        data = {'origin': userData['origin'], 'destination': userData['destination']}
+        return self.db.query_db(query, data)

@@ -1,0 +1,333 @@
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	background-color: #FFFFFF;
+	font-family: Verdana;
+}
+#header{
+	background-color: #F1F2F2;
+}
+h1{
+	color: #59D0DB;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+h1> span{
+	color: #FF9933;
+}
+#cover{
+	background: #59D0DB;
+	height: 370px;
+}
+
+h2{
+	position: absolute;
+	margin: 50px 0px 0px 400px;
+	color: white;
+		
+}
+
+h2> span{
+	color: #FF9933;
+}
+#car1 {
+	height:300px;
+	width:22%;
+	margin: 70px 0px 10px 470px;
+}
+h3{
+	display: inline-block;
+	margin: 20px 0px 0px 190px;
+}
+
+p{
+	display: inline-block;
+	margin: 30px 690px 0px 110px;
+}
+
+#loginForm{
+	margin: -147px 0px 0px 750px;
+	display: inline-block;
+	position: absolute;
+
+}
+
+#username{
+	width: 200px;
+	height: 15px;
+}
+#password{
+	margin-left: 6px;
+	height: 15px;
+	width: 200px;
+}
+
+#login{
+	background-color: #FF9933;
+	margin: 10px 0px 0px 143px;
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: white;
+}
+
+#register{
+	background-color: #59D0DB;
+	margin: 10px 0px 0px 143px;
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: white;
+
+}
+
+#logout{
+	margin: 25px 0px 0px 780px;
+	height: 30px;
+	position: absolute;
+	width: 100px;
+	font-size: medium;
+	background-color: #59D0DB;
+	color: white;
+}
+#profilePic{
+	margin: 30px 0px 0px 50px;
+	height: 250px;	
+}
+#name{
+	position: absolute;
+	margin: 60px 0px 0px 50px;
+	font-size: xx-large;
+	color: #59D0DB;
+}
+#offerRide{
+	margin: 50px 0px 0px 300px;
+	height: 60px;
+	width: 300px;
+	font-size: xx-large;
+	background-color: #FF9933;
+	color: white;
+}
+
+#needRide{
+	margin: -60px 0px 0px 700px;
+	height: 60px;
+	width: 300px;
+	font-size: xx-large;
+	background-color: #59D0DB;
+	color: white;
+}
+
+#activeRequest{
+	color: black;
+	margin: 50px 0px 0px 50px;
+}
+
+#about{
+	margin: 120px 0px 0px 53px;
+	position: absolute;
+}
+
+#sentence{
+	position: absolute;
+	margin: 160px 200px 0px 52px;
+}
+
+#search{
+	display: inline-block;
+	position: absolute;
+	margin: 0px 0px 0px 50px;
+	border-right: 4px solid #F1F2F2;
+	height: 350px;
+}
+#toFrom{
+	padding: 50px 50px 0px 0px;
+	height: 300px;
+	font-size: large;
+}
+#from{
+	height: 44px;
+	width: 250px;
+	font-size: large;
+}
+#destination{
+	height: 44px;
+	width: 250px;
+	font-size: large;
+}
+#searchButton{
+	width: 100px;
+	font-size: medium;
+	background-color: #FF9933;
+	color: white;
+	text-align: center;
+	height: 30px;
+	margin: 15px 0px 0px 150px;
+}
+#carpool{
+	margin: 20px 0px 0px 1000px;
+	height: 320px;
+	width: 640px;
+	position: absolute;
+	top: 50px;
+}
+#offerInfo{
+	/*border: 1px solid black;*/
+	margin: 0px 400px 0px 400px;
+}
+#postRide{
+	margin: 40px 0px 0px 0px;
+	color: black;
+}
+#whereFrom{
+	margin-top: 110px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#whereTo{
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+.depart{
+	margin: 10px 0px 0px 0px;
+	border-bottom: 1px solid #59D0DB;
+	width: 449px;
+	padding: 10px 10px;
+}
+#dateTime{
+	margin-bottom: -30px;
+}
+.datepicker{
+	margin: 5px 0px 25px 0px;
+}
+#datepicker{
+	margin: 5px 0px 25px 0px;
+	height: 36px;
+	width: 170px;
+}
+#time{
+	padding-left: 20px;
+	width: 150px;
+	height: 56px;
+}
+#amPm{
+	width: 117px;
+	height: 56px;
+}
+#spaces{
+	position: absolute;
+	display: inline-block;
+}
+#seats{
+	height: 36px;
+	width: 150px;
+	margin-top: 10px;
+}
+#cost{
+	display: inline-block;
+}
+#pricePerSeat{
+	position: absolute;
+	margin: -17px 0px 0px 180px;
+}
+#price{
+	height: 36px;
+	width: 150px;
+	margin: 5px 0px 0px 180px;
+	padding: 0px 0px 0px 10px;
+	font-size: medium;
+}
+#description{
+	display: inline-block;
+}
+#tripDescription{
+	position: absolute;
+	margin: 55px 0px 0px -330px;
+}
+#commuteDescription{
+	width: 470px;
+	height: 80px;
+}
+#postButton{
+	width: 469px;
+	height: 36px;
+	background-color: #59D0DB;
+	font-size: larger;
+	margin: 30px 0px 0px 0px;
+}
+#registration{
+	margin: 0px 400px 0px 400px;
+}
+#personalInfo{
+	margin: 40px 0px 10px 0px;
+	color: black;
+}
+#firstName{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#lastName{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#phoneNumber{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#email{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#loginInfo{
+	margin: 10px 0px 10px 0px;
+	color: black;
+}
+#user{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#pass{
+	margin-top: 10px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+#ccInfo{
+	margin: 10px 0px 10px 0px;
+	color: black;
+}
+#creditCard{
+	margin-top: 10px;
+	height: 44px;
+	width: 300px;
+	font-size: large;
+}
+#month{
+	width: 117px;
+	height: 56px;
+}
+#submitInfo{
+	width: 469px;
+	height: 36px;
+	background-color: #59D0DB;
+	font-size: larger;
+	margin: 10px 0px 0px 0px;
+}

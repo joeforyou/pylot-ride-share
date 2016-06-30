@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		    <title>Post a Ride</title>
+		    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+		    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    		<script type="text/javascript">
+			$(document).ready(function() {
+   				$("#datepicker").datepicker();
+  			});
+		</script>
+		</head>
+	<body>
+	<div id="container">
+		<div id="header">
+		    <h1>RIDE <span>SHARE</span></h1>
+		    <button id="logout">Log Out</button>
+		</div>
+		<div id="offerInfo">
+			<h2 id="postRide">Post a Ride Offer</h2>
+			<div id="tripInfo">
+				<form id="locations" action="/postoffer" method="Post">
+					<input name='origin' class="route" id="whereFrom" type="text" placeholder="Where From?"><br><br>
+					<input name='destination' class="route" id="whereTo" type="text" placeholder="Where To?">
+				
+				<p class="depart"> Depart</p>
+					<p class="datepicker"><input name='date' type="text" id="datepicker" placeholder="Date"></p>
+					<input type='time' name='time' id="time" placeholder="Time">
+				<span id="numberSeats">Number of seats<br></span>
+					<input type='number' name='seats' id="seats">
+				<span id="pricePerSeat">Price per seat</span>
+				<input name='price' class="tripPrice" id="price" type="number" placeholder="USD"></input><br><br>
+				<p id="tripDescription">Trip Description</p>
+				<textarea name='about' id="commuteDescription" placeholder="Tell us about your trip!"></textarea>
+				<input type='hidden' name='id' value="{{ session['currentUser']['id'] }}">
+				<input type='submit' id="postButton" value='Post Ride'>
+				</form>
+			</div>		
+		</div>
+	</div>
+	</body>
+</html>

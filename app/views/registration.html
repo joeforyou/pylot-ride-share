@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Registration</title>
+		<link rel="stylesheet" type="text/css" href="static/css/style.css">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	</head>
+	<body>
+		<div id="container">
+		<div id="header">
+		    <h1>RIDE <span>SHARE</span></h1>
+		    <a href="/"><button id="logout">Back</button></a>
+		</div>
+		<div id="registration">
+			<p id="personalInfo">Personal Information</p>
+			<form id="newUser" action="/register" method="Post">
+				<input name='firstName' class="text_input" id="firstName" type="text" placeholder="First Name">
+				<input name='lastName' class="text_input" id="lastName" type="text" placeholder="Last Name">
+				<input name='phoneNumber' class="text_input" id="phoneNumber" type="text" placeholder="Phone Number">
+				<input name='email' class="text_input" id="email" type="text" placeholder="Email">
+				<p id="loginInfo"> Login Information</p>
+				<input name='username' class="text_input" id="user" type="text" placeholder="Username">
+				<input name='password' class="text_input" id="pass" type="password" placeholder="Password" >
+				<input name='confirmPassword' class="text_input" id="pass" type="password" placeholder="Confirm Password">
+				<button id="submitInfo" type="submit" value="Submit"/>Register</button>
+			</form>
+			{% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      				<li>{{ message }}</li>
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+		</div>
+	</body>
+</html>

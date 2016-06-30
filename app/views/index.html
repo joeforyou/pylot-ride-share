@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Welcome to Ride Share</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>RIDE <span>SHARE</span></h1>
+      </div>
+      <div id='cover'>
+        <h2>Make your commute <span>fun</span> and <span>easy</span>.</h2>
+        <img id="car1" src="static/img/car.png">
+      </div>
+      <div id="content">
+        <h3>What is Ride Share?</h3>
+        <p> Are you tired of the long commute to work on your own? Ride Share helps you find people just like you to make the trip to work in your surrounding area. Open your car door to a new friend, or hop in and enjoy the ride.</p>
+      </div>
+      <div>
+        <form id="loginForm" action="/login" method="post">
+          Username <input id="username" type="text" name="username"><br><br>
+          Password <input id="password" type="password" name="password"><br><br>
+          <button id="login" type="submit" value="submit"> Login </button>
+          {% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      				<li>{{ message }}</li>
+    				{% endfor %}
+  				{% endif %}
+		{% endwith %}
+        </form>
+        <a href="/signup"><button id="register">Register</button></a>
+      </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
