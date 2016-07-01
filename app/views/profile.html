@@ -39,12 +39,8 @@
 						{% for each in requests %}
 						<li>{{each['origin']}} &nbsp; to &nbsp; {{each['destination']}} &nbsp; on &nbsp; {{each['date']}} &nbsp; at &nbsp; {{each['time']}}
 						<form action='/delete_request' method='post'>
-						<input type='hidden' value="">
+						<input type='hidden' name='request_id' value="">
 						<button type='submit'>Delete</button>
-						</form>
-						<form action='/load_results' method='post'>
-						<input type='hidden' value="">
-						<button type='submit'>View</button>
 						</form>
 						{% if each['completed'] == True %}
 						<p> Offer Accepted!</p>
@@ -71,11 +67,11 @@
 				{% for offer in offerArray %}
 					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}
 					<form action='/delete_offer' method='post'>
-						<input type='hidden' value="">
+						<input type='hidden' name='offer_id' value="">
 						<button type='submit'>Delete</button>
 					</form>
 						<form action='/load_offer' method='post'>
-						<input type='hidden' value="">
+						<input type='hidden' name='offer_id' value="">
 						<button type='submit'>View</button></li>
 					</form>
 					</li>

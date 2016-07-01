@@ -94,3 +94,14 @@ class User(Model):
         query = "SELECT * FROM confirm_ride JOIN offer ON confirm_ride.offer_id = offer.id WHERE confirm_ride.user_id = :id "
         data = { 'id': userData['id'] }
         return self.db.query_db(query, data)
+
+    def interest_ride(self, userData, offer_id):
+        query = "INSERT (user_id, offer_id) VALUES (:user, :offer)"
+        data = {
+
+                'user': userData['id']
+                'offer': offer_id
+
+               }
+        self.db_query(query,data)
+        

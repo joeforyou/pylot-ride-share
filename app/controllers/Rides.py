@@ -34,3 +34,8 @@ class Rides(Controller):
         resultArray = self.models['User'].find_offers(request.form)
         return self.load_view('needRide.html', resultArray=resultArray)
 
+    def interest_ride(self):
+        self.load_model('User')
+        self.models['User'].interest_ride(session['currentUser'], request.form['offer_id'])
+        return redirect('/main')
+
