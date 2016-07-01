@@ -18,23 +18,22 @@
       		</div>
       		<div id="page">
 				<div id="profile">
-					<img id="profilePic" src="static/img/smallcancel.png">
+					<img id="profilePic" src="static/img/car.png">
 					<p id="name">{{ session['currentUser']['first_name'] }} {{ session['currentUser']['last_name'] }}</p>
 					<p id="about">About</p>
 					<p id="sentence">{{ session['currentUser']['about'] }}</p>
 					<form action='/update' method="POST">
-						<input type="text" name='about'>
+						<input id=aboutSection type="text" name='about' placeholder="Tell us about yourself!">
 						<input type='hidden' name='id' value="{{ session['currentUser']['id'] }}">
-						<input type='submit' value="Submit">
+						<input id="submitAbout" type='submit' value="Submit">
 					</form>
 				</div>
 					<a href='/offer'><button id="offerRide">Offer a Ride</button></a>
 					<a id='linkneed' href='/need'><button id="needRide">Need a Ride</button></a>
 				</div>
 				<div id="rideRequest">
-					<h3 id="activeRequest">Pending Ride Requests:</h3>
-
 					<ul id="pendingRequests">
+						<h3 id="activeRequest">Pending Ride Requests:</h3>
 
 						{% for each in requests %}
 						<li>{{each['origin']}} &nbsp; to &nbsp; {{each['destination']}} &nbsp; on &nbsp; {{each['date']}} &nbsp; at &nbsp; {{each['time']}}
@@ -61,9 +60,9 @@
 		<!-- {% for i in session['message'] %}
 				<p>{{ i }}</p>
 		{% endfor %} -->
-				</div>	
-				<h3 class=requestRide id="activeRequest">Active Ride Offers:</h3>
-				<div id="flex">
+				
+				<div id="requestRide">
+				<h3 id="activeRequest">Active Ride Offers:</h3>
 				{% for offer in offerArray %}
 					<li>{{ offer['origin'] }} &nbsp; to &nbsp; {{ offer['destination'] }} &nbsp; on &nbsp; {{ offer['date'] }} &nbsp; at &nbsp; {{ offer['time'] }} &nbsp; {{offer['id']}}
 					<form action='/delete_offer' method='post'>

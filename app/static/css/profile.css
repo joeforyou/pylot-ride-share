@@ -75,15 +75,37 @@ h1> span{
 	background-color: #59D0DB;
 	color: white;
 }
-.requestRide{
-	margin-left: 0px;
+#requestRide{
+	width: 600px;
+}
+#activeRequest{
+	display: inline-block;
 }
 li{
 	display: inline-block;
 }
-#pendingRequests ul li{
+#pendingRequests{
 	display: inline-block;
+	width: 500px;
 }
 ul{
 	display: inline-block;
+}
+#requestRide{
+	width: 600px;
+	display: inline-block;
+	position: absolute;
+	margin: 16px 0px 0px 100px;
+}
+#aboutSection{
+	margin: 18px 0px 0px 49px;
+	width: 500px;
+	height: 50px;
+	font-size: large;
+}
+#submitAbout{
+	width: 100px;
+	font-size: medium;
+	background-color: #59D0DB;
+	color: white;
 }
