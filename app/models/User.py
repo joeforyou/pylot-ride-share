@@ -50,10 +50,14 @@ class User(Model):
         elif not NAME_REGEX.match(userData['username']):
             hasErrors = True
         elif hasErrors == False:
-            password = md5.new(userData['password']).hexdigest()
-            query = "SELECT * FROM user WHERE username = :username AND password = :password"
-            data = {'username': userData['username'],'password': md5.new(userData['password']).hexdigest()}
-            return self.db.query_db(query, data)
+            password = userData['password']
+            query = "SELECT * FROM user WHERE username = :username LIMIT 1"
+            data = {'username': userData['username']}
+            result = self.db.query_db(query, data)
+            check = result[0]['password']
+            if result:
+                if self.bcrypt.check_password_hash(check, password):
+                    return result
         else:
             return False
 
