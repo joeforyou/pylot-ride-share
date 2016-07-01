@@ -50,3 +50,28 @@ h1> span{
 	position: absolute;
 	margin: -120px 200px 0px 352px;
 }
+#pastTripDetails{
+	border: 1px solid black;
+	height: 380px;
+	width:280px;
+	font-size: 14px;
+	margin: -147px 0px 0px 822px;
+	position: absolute;
+}
+#previousTripHeader{
+	background-color: #59D0DB;
+}
+#previousTripHeader h1{
+	color: white;
+}
+#details{
+	padding: 0px 16px;
+}
+#intinerary{
+	padding: 0px 16px;
+
+}
+img{
+	height: 80px;
+	margin: 16px 0px 0px 40px;
+	}
