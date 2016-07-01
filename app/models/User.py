@@ -98,7 +98,7 @@ class User(Model):
     def interest_ride(self, userData, offer_id):
         query = "INSERT INTO confirm_ride (user_id, offer_id) VALUES (:user, :offer)"
         data = {
-                'user': userData['id']
+                'user': userData['id'],
                 'offer': offer_id
                }
         self.db_query(query,data)
@@ -106,19 +106,15 @@ class User(Model):
     def delete_request(self, userData, request_id):
         query="DELETE FROM confirm_ride WHERE confirm_ride.user_id = :user AND confirm_ride.request_id = :request"
         data = { 
-
-                'user':userData['id']
+                'user':userData['id'],
                 'request': request_id
-
                }
         self.db_query(query,data)
     def delete_offer(self, userData, offer_id):
         query="DELETE FROM offer_id WHERE offer.user_id= :user AND offer.id= :offer"
         data={
-
-                'user':userData['id']
-                'offer':offer_id
-
+              'user' :userData['id'],
+              'offer' :offer_id
             }
         self.db_query(query,data)
         
