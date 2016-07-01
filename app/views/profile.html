@@ -33,14 +33,22 @@
 				</div>
 				<div id="rideRequest">
 					<h3 id="activeRequest">Active Ride Requests:</h3>
-				<form action="" method="">
+				
 					<ul>
-						<li>Los Angeles to San Francisco July 1 7pm<button>Delete</button><button>View</button></li>
+						<li>Los Angeles to San Francisco July 1 7pm
+						<form action='/delete_request' method='post'>
+						<input type='hidden' value="">
+						<button type='submit'>Delete</button>
+						</form>
+						<form action='/load_results' method='post'>
+						<input type='hidden' value="">
+						<button type='submit'>View</button></li>
+						</form>
 						<li>Los Angeles to San Diego July 3 7pm<button>Delete</button><button>View</button></li>
 						<li>Los Angeles to Santa Monica July5 7pm<button>Delete</button><button>View</button></li>
 						<li>Los Angeles to Fresno July 22 7pm<button>Delete</button><button>View</button></li>
 					</ul>
-				</form>
+			
 
 					<!-- <p>Los Angeles to San Francisco June 22 7pm</p>
 					<p>Los Angeles to San Diego July 4 8am</p>
@@ -53,7 +61,16 @@
 				<h3 id="activeRequest">Active Ride Offers:</h3>
 				<div>
 				{% for offer in offerArray %}
-					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}</li>
+					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}
+					<form action='/delete_offer' method='post'>
+						<input type='hidden' value="">
+						<button type='submit'>Delete</button>
+					</form>
+						<form action='/load_offer' method='post'>
+						<input type='hidden' value="">
+						<button type='submit'>View</button></li>
+					</form>
+					</li>
 				{% endfor %}
 				</div>
 			</div>
