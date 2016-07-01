@@ -137,7 +137,7 @@
     </table>
 
               <div id="locationField">
-              <input id="autocomplete" placeholder="Where to?"
+              <input id="autocomplete2" placeholder="Where to?"
              onFocus="geolocate()" type="text"></input>
               </div>
               
@@ -210,6 +210,11 @@
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
+
+        autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('autocomplete2'), { types: [ 'geocode' ] });
+        google.maps.event.addListener(autocomplete2, 'place_changed', function() {
+          fillInAddress();
+        });
       }
 
       function fillInAddress() {
