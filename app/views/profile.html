@@ -39,7 +39,7 @@
 						{% for each in requests %}
 						<li>{{each['origin']}} &nbsp; to &nbsp; {{each['destination']}} &nbsp; on &nbsp; {{each['date']}} &nbsp; at &nbsp; {{each['time']}}
 						<form action='/delete_request' method='post'>
-						<input type='hidden' name='request_id' value="each['id']">
+						<input type='hidden' name='request_id' value="{{ each['id'] }}">
 						<button type='submit'>Delete</button>
 						</form>
 						{% if each['completed'] == True %}
@@ -71,7 +71,7 @@
 						<button type='submit'>Delete</button>
 					</form>
 					<form action='/load_offer' method='post'>
-						<input type='hidden' name='offer_id' value="offer['id']">
+						<input type='hidden' name='offer_id' value="{{ offer['id'] }}">
 						<button type='submit'>View</button></li>
 					</form>
 					</li>
