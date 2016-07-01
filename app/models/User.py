@@ -102,4 +102,6 @@ class User(Model):
                 'offer': offer_id
                }
         self.db_query(query,data)
+
+    
         

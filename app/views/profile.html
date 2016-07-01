@@ -65,7 +65,7 @@
 				<h3 class=requestRide id="activeRequest">Active Ride Offers:</h3>
 				<div id="flex">
 				{% for offer in offerArray %}
-					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}
+					<li>{{ offer['origin'] }} &nbsp; to &nbsp; {{ offer['destination'] }} &nbsp; on &nbsp; {{ offer['date'] }} at {{ offer['time'] }}
 					<form action='/delete_offer' method='post'>
 						<input type='hidden' name='offer_id' value="">
 						<button type='submit'>Delete</button>
