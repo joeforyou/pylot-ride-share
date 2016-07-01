@@ -54,13 +54,18 @@ h1> span{
 	color: black;
 	margin: 50px 0px 0px 50px;
 }
-#linkneed{
+/*#linkneed{
 	margin: 0;
+	display: inline-block;
+	width: 20px;*/
+}
+#linkoffer{
+	margin: 0px 0px 0px 500px;
 	display: inline-block;
 	width: 20px;
 }
 #offerRide{
-	margin: 50px 0px 0px 300px;
+	margin: 50px 0px 0px 189px;
 	height: 60px;
 	width: 300px;
 	font-size: xx-large;
@@ -68,7 +73,7 @@ h1> span{
 	color: white;
 }
 #needRide{
-	margin: -60px 0px 0px 70px;
+	margin: -60px 0px 0px 228px;
 	height: 60px;
 	width: 300px;
 	font-size: xx-large;
