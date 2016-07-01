@@ -3,12 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 	    <title>Need a Ride</title>
-	    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+	    <link rel="stylesheet" type="text/css" href="static/css/needRide.css">
 	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBg-UDbAAvfA7W6bysXmpCecbCQ0VUvXSM&amp;libraries=places" type="text/javascript"></script>
     	<script type="text/javascript">
+    	$(document).ready(function() {
+				$("#carpool").animate({right: "+=550"}, 2000);
+				
+			$(document).ready(function() {
+   				$("#datepicker").datepicker();
+  			})
+		});
    	function initialize() {
       var input = document.getElementById('searchTextField');
       var options = {
@@ -28,9 +35,13 @@
 		  	<div id="search">
 		  		<form action='/search' method='post' id="toFrom">
 					From<br><br><input name='origin' id="searchTextField" type="text" placeholder="Where from?"/><br><br> 
-					Destination<br><br><input name='destination' id="searchTextField" type="text" placeholder="Where to?"/><br><br>   	
+					Destination<br><br><input name='destination' id="searchTextField" type="text" placeholder="Where to?"/><br><br>
+					<p class="datepicker"><input type="text" id="datepicker" placeholder="Date"></p>  	   	
 					<input id="searchButton" type="submit" value="submit">	
 		  		</form>
+		  	</div>
+		  	<div>
+		  		<img id="carpool" src="static/img/carpool.png" alt="">
 		  	</div>
 		  	<div>
 		  	{% for result in resultArray %}
