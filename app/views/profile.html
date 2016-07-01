@@ -67,7 +67,7 @@
 		{% endfor %} -->
 				</div>	
 				<h3 class=requestRide id="activeRequest">Active Ride Offers:</h3>
-				<div id="flex"
+				<div id="flex">
 				{% for offer in offerArray %}
 					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}
 					<form action='/delete_offer' method='post'>
