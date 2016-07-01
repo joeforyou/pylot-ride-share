@@ -46,6 +46,6 @@ class Rides(Controller):
 
     def delete_offer(self):
         self.load_model('User')
-        self.models['user'].delete_request(session['currentUser'], request.form['offer_id'])
+        self.models['User'].delete_request(session['currentUser'], request.form['offer_id'])
         return redirect('/main')
 
