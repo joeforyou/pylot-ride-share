@@ -178,6 +178,26 @@
         </div>
         <div>
         {% for result in resultArray %}
+        	<div id="resultBox">
+		      		<div id="resultHeader">
+						<h2>Intinerary</h2>
+					</div>
+					<div id="route">
+						<h3>From:{{ result['origin'] }}</h3>
+						<h3>To:{{ result['destination'] }}</h3>
+					</div>
+					<div id="depatSeats">
+						<h4>DEPARTING</h4>
+						<p id="info">{{ result['date'] }}<br>{{ result['departure_time'] }}</p>
+						<h4>ARRIVING</h4>
+						<p id="info">{{ result['arrivale_time' }}</p>
+						<h4 id="seatsAvail">SEATS AVAIL.</h4>
+						<span id="numberSeats">{{ result['seats_available'] }}</span>
+						{% for i in range(1, {{ result['seats_available'] }} )}
+						<img src="staticimg/seat.jpg">
+						{% endfor %}
+					</div>
+				</div>
           {{ result['origin'] }} to {{ result['destination'] }} on {{ result['date'] }} at {{ result['time'] }}
         {% endfor %}
         </div>
