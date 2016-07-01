@@ -119,3 +119,12 @@ img{
 	height: 30px;
 	padding: 0px 0px 0px 10px;
 }
+#viewUserProfile{
+	margin: -44px 0px 0px 639px;
+	position: absolute;
+	background-color: #FF9933;
+	color: white;
+	font-size: medium;
+	height: 29px;
+
+}
