@@ -115,7 +115,7 @@ p{
 }
 
 #needRide{
-	margin: -60px 0px 0px 700px;
+	margin: -60px 0px 0px 70px;
 	height: 60px;
 	width: 300px;
 	font-size: xx-large;
@@ -329,4 +329,9 @@ p{
 	background-color: #59D0DB;
 	font-size: larger;
 	margin: 10px 0px 0px 0px;
+}
+#linkneed{
+	margin: 0;
+	display: inline-block;
+	width: 20px;
 }
