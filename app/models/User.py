@@ -98,10 +98,8 @@ class User(Model):
     def interest_ride(self, userData, offer_id):
         query = "INSERT (user_id, offer_id) VALUES (:user, :offer)"
         data = {
-
                 'user': userData['id']
                 'offer': offer_id
-
                }
         self.db_query(query,data)
         
