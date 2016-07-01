@@ -89,7 +89,7 @@ class User(Model):
 
     def find_offers(self, userData):
         query = 'SELECT * FROM offer WHERE origin = :origin OR destination = :destination'
-        data = {'postalCodeOrigin': userData['origin'], 'destination': userData['destination']}
+        data = {'origin': userData['origin'], 'destination': userData['destination']}
         return self.db.query_db(query, data)
 
     def get_interested(self, userData):
