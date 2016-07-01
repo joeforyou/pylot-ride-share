@@ -101,20 +101,20 @@ class User(Model):
                 'user': userData['id'],
                 'offer': offer_id
                }
-        self.db_query(query,data)
+        self.db.query_db(query, data)
 
-    def delete_request(self, userData, request_id):
-        query="DELETE FROM confirm_ride WHERE confirm_ride.user_id = :user AND confirm_ride.request_id = :request"
+    def delete_request(self, userData, confirm_id):
+        query="DELETE FROM confirm_ride WHERE confirm_ride.user_id = :user AND confirm_ride.offer_id = :confirm"
         data = { 
                 'user':userData['id'],
-                'request': request_id
+                'confirm': confirm_id
                }
-        self.db_query(query,data)
+        self.db.query_db(query, data)
     def delete_offer(self, userData, offer_id):
-        query="DELETE FROM offer_id WHERE offer.user_id= :user AND offer.id= :offer"
+        query="DELETE FROM offer WHERE offer.user_id= :user AND offer.id= :offer"
         data={
               'user' :userData['id'],
               'offer' :offer_id
             }
-        self.db_query(query,data)
+        self.db.query_db(query, data)
         
