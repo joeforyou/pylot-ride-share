@@ -11,6 +11,7 @@ class Rides(Controller):
         self.load_model('User')
         offerArray = self.models['User'].get_offers_by_id(session['currentUser']['id'])
         request = self.models['User'].get_interested(session['currentUser'])
+        join = self.models['User'].get_join(session['currentUser'])
         return self.load_view('profile.html', offerArray=offerArray, request=request)
 
     def offer(self):
@@ -36,7 +37,7 @@ class Rides(Controller):
 
     def interest_ride(self):
         self.load_model('User')
-        self.models['User'].interest_ride(session['currentUser'], request.form['offer_id'])
+        self.models['User'].interest_ride(session['currentUser'], request.form)
         return redirect('/main')
 
     def delete_request(self):
@@ -48,4 +49,6 @@ class Rides(Controller):
         self.load_model('User')
         self.models['User'].delete_offer(session['currentUser'], request.form['offer_id'])
         return redirect('/main')
+    
+
 

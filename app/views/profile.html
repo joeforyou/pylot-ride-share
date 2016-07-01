@@ -74,6 +74,13 @@
 						<button type='submit'>View</button></li>
 					</form>
 					</li>
+					<div id="hidden">
+					{% for each in join %}
+					<form action='/accept' method='post'>
+					<input type='hidden' value="{{ each['user_id'] }}">
+					<button  type='submit'>accept</button>
+					</form>
+					{% endfor %}
 				{% endfor %}
 				</div>
 			</div>
