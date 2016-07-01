@@ -110,8 +110,9 @@ class User(Model):
                 'confirm': confirm_id
                }
         self.db.query_db(query, data)
+
     def delete_offer(self, userData, offer_id):
-        query="DELETE FROM offer WHERE offer.user_id= :user AND offer.id= :offer"
+        query="DELETE FROM offer WHERE offer.id = :offer"
         data={
               'user' :userData['id'],
               'offer' :offer_id
