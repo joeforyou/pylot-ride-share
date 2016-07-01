@@ -112,4 +112,13 @@ class User(Model):
 
                }
         self.db_query(query,data)
+    def delete_offer(self, userData, offer_id):
+        query="DELETE FROM offer_id WHERE offer.user_id= :user AND offer.id= :offer"
+        data={
+
+                'user':userData['id']
+                'offer':offer_id
+
+            }
+        self.db_query(query,data)
         

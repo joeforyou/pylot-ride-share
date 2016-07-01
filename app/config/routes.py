@@ -29,6 +29,7 @@ routes['POST']['/postoffer'] = 'Rides#postoffer'
 routes['/need'] = 'Rides#need'
 routes['POST']['/search'] = 'Rides#search'
 routes['POST']['/delete_request'] = 'Rides#delete_request'
+routes['POST']['/delete_offer'] = 'Rides#delete_offer'
 """
     You can add routes and specify their handlers as follows:
 
