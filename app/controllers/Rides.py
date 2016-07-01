@@ -39,3 +39,8 @@ class Rides(Controller):
         self.models['User'].interest_ride(session['currentUser'], request.form['offer_id'])
         return redirect('/main')
 
+    def delete_request(self)
+        self.load_model('User')
+        self.models['User'].delete_request(session['currentUser'], request.form['request_id'])
+        return redirect('/main')
+
