@@ -1,0 +1,105 @@
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	background-color: #FFFFFF;
+	font-family: Verdana;
+}
+#header{
+	background-color: #F1F2F2;
+}
+h1{
+	color: #59D0DB;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+h1> span{
+	color: #FF9933;
+}
+#cover{
+	background: #59D0DB;
+	height: 370px;
+}
+#logout{
+	margin: 25px 0px 0px 780px;
+	height: 30px;
+	position: absolute;
+	width: 100px;
+	font-size: medium;
+	background-color: #59D0DB;
+	color: white;
+}
+#offerInfo{
+	/*border: 1px solid black;*/
+	margin: 0px 400px 0px 400px;
+}
+#postRide{
+	margin: 40px 0px 0px 0px;
+	color: black;
+}
+#searchTextField{
+	margin-top: 30px;
+	height: 44px;
+	width: 469px;
+	font-size: large;
+}
+.depart{
+	margin: 10px 0px 0px 0px;
+	border-bottom: 1px solid #59D0DB;
+	width: 449px;
+	padding: 10px 10px;
+}
+.datepicker{
+	margin: 5px 0px 25px 0px;
+}
+#datepicker{
+	margin: 5px 0px 25px 0px;
+	height: 36px;
+	width: 170px;
+}
+#time{
+	margin: -86px 0px 0px 226px;
+	width: 100px;
+	height: 36px;
+	position: absolute;
+
+}
+#numberSeats{
+	margin: -28px 0px 0px 0px;
+	position: absolute;
+}
+#seats{
+	height: 36px;
+	width: 150px;
+	margin-top: 10px;
+
+}
+#pricePerSeat{
+	position: absolute;
+	margin: -28px 0px 0px 24px;
+}
+#price{
+	height: 36px;
+	width: 150px;
+	margin: -26px 0px 0px 20px;
+	padding: 0px 0px 0px 10px;
+	font-size: medium;
+}
+textarea{
+	width: 470px;
+	height: 80px;
+	font-size: medium;
+}
+#postButton{
+	width: 470px;
+	height: 36px;
+	background-color: #59D0DB;
+	font-size: larger;
+	margin: 30px 0px 0px 0px;
+	color: white;
+}
