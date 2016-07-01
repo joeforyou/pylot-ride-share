@@ -67,7 +67,7 @@ class User(Model):
         return self.db.query_db(query, data)
 
     def post_new_offer(self, userData):
-        query = 'INSERT INTO offer (origin, destination, date, time, seats, price, about, user_id) VALUES (:origin, :destination, :date, :time, :seats, :price, :about, :id)'
+        query = 'INSERT INTO offer (origin, destination, date, departure_time, seats, price, about, user_id) VALUES (:origin, :destination, :date, :time, :seats, :price, :about, :id)'
         data = {
                 'origin': userData['origin'], 
                 'destination': userData['destination'], 
