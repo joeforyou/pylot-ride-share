@@ -10,7 +10,8 @@ class Rides(Controller):
     def index(self):
         self.load_model('User')
         offerArray = self.models['User'].get_offers_by_id(session['currentUser']['id'])
-        return self.load_view('profile.html', offerArray=offerArray)
+        request = self.models['User'].get_interested(session['currentUser'])
+        return self.load_view('profile.html', offerArray=offerArray, request=request)
 
     def offer(self):
         return self.load_view('offerRide.html')
@@ -32,3 +33,4 @@ class Rides(Controller):
         self.load_model('User')
         resultArray = self.models['User'].find_offers(request.form)
         return self.load_view('needRide.html', resultArray=resultArray)
+

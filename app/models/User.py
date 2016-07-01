@@ -89,3 +89,8 @@ class User(Model):
         query = 'SELECT * FROM offer WHERE origin = :origin OR destination = :destination'
         data = {'origin': userData['origin'], 'destination': userData['destination']}
         return self.db.query_db(query, data)
+
+    def get_interested(self, userData):
+        query = "SELECT * FROM confirm_ride JOIN offer ON confirm_ride.offer_id = offer.id WHERE confirm_ride.user_id = :id "
+        data = { 'id': userData['id'] }
+        return self.db.query_db(query, data)

@@ -35,15 +35,23 @@
 					<h3 id="activeRequest">Active Ride Requests:</h3>
 				
 					<ul>
-						<li>Los Angeles to San Francisco July 1 7pm
+
+						{% for each in requests %}
+						<li>{{each['origin']}} &nbsp; to &nbsp; {{each['destination']}} &nbsp; on &nbsp; {{each['date']}} &nbsp; at &nbsp; {{each['time']}}
 						<form action='/delete_request' method='post'>
 						<input type='hidden' value="">
 						<button type='submit'>Delete</button>
 						</form>
 						<form action='/load_results' method='post'>
 						<input type='hidden' value="">
-						<button type='submit'>View</button></li>
+						<button type='submit'>View</button>
 						</form>
+						{% if each['completed'] == True %}
+						<p> Offer Accepted!</p>
+						{% endif %}
+						</li>
+						{% endfor %}
+						
 						<li>Los Angeles to San Diego July 3 7pm<button>Delete</button><button>View</button></li>
 						<li>Los Angeles to Santa Monica July5 7pm<button>Delete</button><button>View</button></li>
 						<li>Los Angeles to Fresno July 22 7pm<button>Delete</button><button>View</button></li>
