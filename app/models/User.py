@@ -67,16 +67,18 @@ class User(Model):
         return self.db.query_db(query, data)
 
     def post_new_offer(self, userData):
-        query = 'INSERT INTO offer (origin, destination, date, departure_time, seats, price, about, user_id) VALUES (:origin, :destination, :date, :time, :seats, :price, :about, :id)'
+        query = 'INSERT INTO offer (origin, destination, date, departure_time, seats, price, about, user_id, arrival_time, seats_available) VALUES (:origin, :destination, :date, :departure_time, :seats, :price, :about, :id, :arrival_time, :seats_available)'
         data = {
                 'origin': userData['origin'], 
                 'destination': userData['destination'], 
                 'date': userData['date'], 
-                'time': userData['time'], 
+                'departure_time': userData['departure_time'], 
                 'seats': userData['seats'], 
                 'price': userData['price'], 
                 'about': userData['about'], 
-                'id': userData['id']
+                'id': userData['id'],
+                'arrival_time': userData['arrival_time'],
+                'seats_available': userData['seats']
                 }
         return self.db.query_db(query, data)
 
@@ -86,8 +88,8 @@ class User(Model):
         return self.db.query_db(query, data)
 
     def find_offers(self, userData):
-        query = 'SELECT * FROM offer WHERE from_zip = :postalCodeOrigin OR to_zip = :postalCodeDestination'
-        data = {'postalCodeOrigin': userData['postalCodeOrigin'], 'postalCodeDestination': userData['postalCodeDestination']}
+        query = 'SELECT * FROM offer WHERE origin = :origin OR destination = :destination'
+        data = {'postalCodeOrigin': userData['origin'], 'destination': userData['destination']}
         return self.db.query_db(query, data)
 
     def get_interested(self, userData):
@@ -102,6 +104,9 @@ class User(Model):
                 'offer': offer_id
                }
         self.db.query_db(query, data)
+        query = "UPDATE offer SET seats_available = (seats_available - 1) WHERE offer.id = :offer"
+        self.db.query_db(query, data)
+
 
     def delete_request(self, userData, confirm_id):
         query="DELETE FROM confirm_ride WHERE confirm_ride.user_id = :user AND confirm_ride.offer_id = :confirm"
