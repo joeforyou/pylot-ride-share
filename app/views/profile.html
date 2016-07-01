@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
     	<title>My Ride Share Profile</title>
-    	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/profile.css">
     	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    		 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -32,9 +32,9 @@
 					<a id='linkneed' href='/need'><button id="needRide">Need a Ride</button></a>
 				</div>
 				<div id="rideRequest">
-					<h3 id="activeRequest">Active Ride Requests:</h3>
-				
-					<ul>
+					<h3 id="activeRequest">Pending Ride Requests:</h3>
+
+					<ul id="pendingRequests">
 
 						{% for each in requests %}
 						<li>{{each['origin']}} &nbsp; to &nbsp; {{each['destination']}} &nbsp; on &nbsp; {{each['date']}} &nbsp; at &nbsp; {{each['time']}}
@@ -66,8 +66,8 @@
 				<p>{{ i }}</p>
 		{% endfor %} -->
 				</div>	
-				<h3 id="activeRequest">Active Ride Offers:</h3>
-				<div>
+				<h3 class=requestRide id="activeRequest">Active Ride Offers:</h3>
+				<div id="flex"
 				{% for offer in offerArray %}
 					<li>{{ offer['origin'] }} to {{ offer['destination'] }} on {{ offer['date'] }} at {{ offer['time'] }}
 					<form action='/delete_offer' method='post'>
