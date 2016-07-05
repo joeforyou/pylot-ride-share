@@ -14,6 +14,7 @@ class Rides(Controller):
         join = self.models['User'].get_join(session['currentUser'])
         return self.load_view('profile.html', offerArray=offerArray, request=request)
 
+
     def offer(self):
         return self.load_view('offerRide.html')
 
@@ -37,7 +38,7 @@ class Rides(Controller):
 
     def interest_ride(self):
         self.load_model('User')
-        self.models['User'].interest_ride(session['currentUser'], request.form)
+        self.models['User'].interest_ride(session['currentUser'], request.form['interest'])
         return redirect('/main')
 
     def delete_request(self):

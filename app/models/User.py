@@ -97,14 +97,14 @@ class User(Model):
         data = { 'id': userData['id'] }
         return self.db.query_db(query, data)
 
-    def interest_ride(self, userData, formData):
+    def interest_ride(self, userData, offer_id):
         query = "INSERT INTO confirm_ride (user_id, offer_id) VALUES (:user, :offer)"
         data = {
                 'user': userData['id'],
-                'offer': formData['id']
+                'offer': offer_id
                }
         self.db.query_db(query, data)
-        query = "UPDATE offer SET seats_available = (seats_available - 1) WHERE offer.id = :offer"
+        query = "UPDATE offer SET seats_available = seats_available - 1 WHERE offer.id = :offer"
         self.db.query_db(query, data)
 
 
@@ -125,6 +125,6 @@ class User(Model):
         self.db.query_db(query, data)
 
     def get_join(self, userData):
-        query="SELECT * FROM (SELECT * FROM offer WHERE offer.user_id=:id) AS all_rides JOIN confirm_ride ON all_rides.id=confirm_ride.offer_id JOIN user ON user.id=confirm_ride.user_id"
+        query="SELECT * FROM (SELECT * FROM offer WHERE offer.user_id=:id) AS all_rides JOIN confirm_ride confirms ON all_rides.id=confirms.offer_id JOIN user ON user.id=confirms.user_id"
         data={'id': userData['id']}
         self.db.query_db(query, data)
